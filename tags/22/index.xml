@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>22 on Ethan&#39;s Treehouse</title>
+    <link>https://ethanwwys.github.io/tags/22/</link>
+    <description>Recent content in 22 on Ethan&#39;s Treehouse</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ethanwwys.github.io/tags/22/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to Ethan Blog</title>
+      <link>https://ethanwwys.github.io/2024/07/28/hello-world/</link>
+      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ethanwwys.github.io/2024/07/28/hello-world/</guid>
+      <description>今天是2024年的7月28号，在自己的博客下写下了第一篇闲话，想给自己创建一个博客已经是很久以前的想法了，这个想法的原型诞生在高中的时候，那</description>
+    </item>
+  </channel>
+</rss>
