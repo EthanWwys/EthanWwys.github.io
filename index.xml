@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ethan&#39;s Treehouse</title>
-    <link>https://ethanwwys.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Ethan&#39;s Treehouse</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ethanwwys.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>和石宇奇的故事</title>
-      <link>https://ethanwwys.github.io/2024/08/03/hello-world/</link>
+      <link>http://localhost:1313/2024/08/03/hello-world/</link>
       <pubDate>Sat, 03 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/2024/08/03/hello-world/</guid>
+      <guid>http://localhost:1313/2024/08/03/hello-world/</guid>
       <description>2024年8月3日凌晨一时许，石宇奇0:2输给昆拉武特止步奥运会八强，噩梦并没有闪回，而是成真了。 什么时候开始看石宇奇比赛来着？印象中是21</description>
     </item>
     <item>
       <title>Welcome to Ethan Blog</title>
-      <link>https://ethanwwys.github.io/2024/07/29/hello-world/</link>
+      <link>http://localhost:1313/2024/07/29/hello-world/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/2024/07/29/hello-world/</guid>
+      <guid>http://localhost:1313/2024/07/29/hello-world/</guid>
       <description>“Yeah It&amp;rsquo;s on. ”</description>
     </item>
     <item>
       <title>Welcome to Ethan Blog</title>
-      <link>https://ethanwwys.github.io/2024/07/29/hello-world/</link>
+      <link>http://localhost:1313/2024/07/29/hello-world/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/2024/07/29/hello-world/</guid>
+      <guid>http://localhost:1313/2024/07/29/hello-world/</guid>
       <description>“Yeah It&amp;rsquo;s on. ” Hello World!</description>
     </item>
     <item>
       <title>Welcome to Ethan Blog</title>
-      <link>https://ethanwwys.github.io/2024/07/28/hello-world/</link>
+      <link>http://localhost:1313/2024/07/28/hello-world/</link>
       <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/2024/07/28/hello-world/</guid>
+      <guid>http://localhost:1313/2024/07/28/hello-world/</guid>
       <description>今天是2024年的7月28号，在自己的博客下写下了第一篇闲话，想给自己创建一个博客已经是很久以前的想法了，这个想法的原型诞生在高中的时候，那</description>
     </item>
     <item>
       <title></title>
-      <link>https://ethanwwys.github.io/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description></description>
     </item>
     <item>
       <title></title>
-      <link>https://ethanwwys.github.io/notes/</link>
+      <link>http://localhost:1313/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/notes/</guid>
+      <guid>http://localhost:1313/notes/</guid>
       <description>Go 语言学习笔记 Envoy 学习笔记</description>
     </item>
     <item>
       <title></title>
-      <link>https://ethanwwys.github.io/search/placeholder/</link>
+      <link>http://localhost:1313/search/placeholder/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanwwys.github.io/search/placeholder/</guid>
+      <guid>http://localhost:1313/search/placeholder/</guid>
       <description></description>
     </item>
   </channel>
