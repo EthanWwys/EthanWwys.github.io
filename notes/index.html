@@ -108,8 +108,6 @@
                     
                         <li><a href="/notes//">NOTES</a></li>
                     
-                        <li><a href="/about//">ABOUT</a></li>
-                    
 		            <li>
                         <a href="/search"><i class="fa fa-search"></i></a>
 		           </li>
@@ -179,7 +177,79 @@
             col-xs-12
             post-container">
             
-                
+                <h2 id="题目描述">题目描述</h2>
+<p>有 $n$ 根木棒，现在从中选 $4$ 根，想要组成一个正三角形，问有几种选法？</p>
+<p>答案对 $10^9+7$ 取模。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行一个整数 $n$。</p>
+<p>第二行往下 $n$ 行，每行 $1$ 个整数，第 $i$ 个整数 $a_i$ 代表第 $i$ 根木棒的长度。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>一行一个整数代表答案。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<pre tabindex="0"><code>4 
+1
+1
+2
+2
+</code></pre><h3 id="样例输出-1">样例输出 #1</h3>
+<pre tabindex="0"><code>1
+</code></pre><h2 id="提示">提示</h2>
+<h4 id="数据规模与约定">数据规模与约定</h4>
+<ul>
+<li>对于 $30%$ 的数据，保证 $n \le 5 \times 10^3$。</li>
+<li>对于 $100%$ 的数据，保证 $1 \leq n \le 10^5$，$1 \le a_i \le 5 \times 10^3$。</li>
+</ul>
+<p>关于标题：因为一些不可抗力的原因，名称进行了更改。深表歉意。</p>
+<hr>
+<h2 id="题目分析">题目分析</h2>
+<p>由四根木棒组成一个等边三角形，通过简单数学实验可知必然会有两根木棒$l_1,l_2$长度相等（最长的两根）剩下的两根长度之和等于$l_1,l_2$的长度，例如2,2,1,1。
+因此，解题思路可以是从长度<strong>由大到小枚举</strong>，考察最长边为$l_i$的<strong>两根</strong>木棒可以和其他小木棒构成多少个等边三角形。同时注意到 $1 \leq n \le 10^5$，$n^2$的时间复杂度可以通过。</p>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="预处理构建数组">预处理，构建数组</h3>
+<p>下标为i的位置存储长度为i的木棒的数量</p>
+<h3 id="循环部分">循环部分</h3>
+<h4 id="外层循环">外层循环</h4>
+<p>从<strong>最长的</strong>木棒$l_i$开始枚举（因为最长的木棒决定了等边三角形的边长是多少，决定了两个短木棒的组合），长度为$l_i$木棒数如果超过两个，则具有组成等边三角形最基础的条件。接下来选择2个长度为$l_i$的木棒，数量为<code>k = straw[i] * (straw[i] - 1)/2;</code>个。</p>
+<h4 id="内层循环">内层循环</h4>
+<p>内层循环用于计算在已经选出两个特定的长木棒的情况下，有多少个短木棒的组合。也就是两个短木棒的长度之和要等于长木棒的长度，问题自然就转化成将长木棒分解为两个正整数的不定方程（把6拆成15,24,33），并且计算每一个分解结果有多少种组合。</p>
+<p>每一个分解结果组合数自然是两个长度对应的木棒数的乘积<code>straw[j] * straw[i-j];</code><strong>然而这里需要注意，如果长木棒的长度是偶数，处理内层循环的时候会遇到刚好两个短木棒长度为长木棒一半的情况，此时这种情况的数量不能通过<code>straw[j] * straw[i-j];</code>计算，需要通过单独判断来处理</strong>，因此，选择在循环到$l_i/2$​之前结束循环，通过判断i是否为偶数在额外计算两个短木棒长度为长木棒一半的组合数。</p>
+<p>对temp累加</p>
+<h3 id="回到外层循环">回到外层循环</h3>
+<p><code>and += k * temp</code>结果加上长木棒组合数与短木棒组合数的乘积，取模之后就是正确答案咯！！</p>
+<h2 id="ac代码">AC代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff79c6">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span><span style="color:#ff79c6">using</span> <span style="color:#ff79c6">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> N <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1e5</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> M <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1e9</span> <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">7</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(<span style="color:#8be9fd">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> <span style="color:#8be9fd">long</span> straw[N] <span style="color:#ff79c6">=</span> {<span style="color:#bd93f9">0</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> <span style="color:#8be9fd">long</span> n, length, max <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, ans <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>, k;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#ff79c6">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>; i<span style="color:#ff79c6">&lt;=</span>n; i<span style="color:#ff79c6">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cin<span style="color:#ff79c6">&gt;&gt;</span>length;
+</span></span><span style="display:flex;"><span>        straw[length]<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>(length <span style="color:#ff79c6">&gt;</span> max)    max <span style="color:#ff79c6">=</span> length;
+</span></span><span style="display:flex;"><span>    }<span style="color:#6272a4">//构建数组，下标为i的位置存储长度为i的木棒的数量
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> max; i<span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">2</span>; i<span style="color:#ff79c6">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">long</span> <span style="color:#8be9fd">long</span> temp <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>        k <span style="color:#ff79c6">=</span> straw[i] <span style="color:#ff79c6">*</span> (straw[i] <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>)<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>(straw[i]<span style="color:#ff79c6">&gt;=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> j <span style="color:#ff79c6">=</span> i; j <span style="color:#ff79c6">&gt;</span> i<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>; j<span style="color:#ff79c6">--</span>)
+</span></span><span style="display:flex;"><span>                temp <span style="color:#ff79c6">+=</span> straw[j] <span style="color:#ff79c6">*</span> straw[i<span style="color:#ff79c6">-</span>j];
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">!</span>(i<span style="color:#ff79c6">%</span><span style="color:#bd93f9">2</span>))
+</span></span><span style="display:flex;"><span>                temp <span style="color:#ff79c6">+=</span> straw[i<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>]<span style="color:#ff79c6">*</span>(straw[i<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>]<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ans <span style="color:#ff79c6">+=</span> temp <span style="color:#ff79c6">*</span> k;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout<span style="color:#ff79c6">&lt;&lt;</span>ans<span style="color:#ff79c6">%</span>M;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
             
              
             
@@ -288,6 +358,8 @@
         <h5>FEATURED TAGS</h5>
         <div class="tags">
             
+            
+               
             
                
             

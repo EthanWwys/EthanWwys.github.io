@@ -6,13 +6,20 @@
     <description>Recent content in Tags on Ethan&#39;s Treehouse</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>22</title>
-      <link>http://localhost:1313/tags/22/</link>
-      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/22/</guid>
+      <title>暴力枚举</title>
+      <link>http://localhost:1313/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>组合数学</title>
+      <link>http://localhost:1313/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
   </channel>
